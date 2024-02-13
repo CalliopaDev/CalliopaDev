@@ -1,0 +1,76 @@
+
+console.log("Hello Cli", process.cwd());
+
+/**
+ * get the user-specific arguments
+ */
+const args = process.argv.slice(2);
+
+console.log("args: ", args);
+
+if (args.length === 0) {
+    console.log("No arguments provided");
+    process.exit(1);
+}
+
+/**
+ * get a argument followed by an arg that is -c
+ */
+const configIndex = args.findIndex((arg) => arg === "-c" || arg === "--config") + 1;
+
+console.log("configIndex: ", configIndex);
+
+if (configIndex <= 0) {
+    console.log("No config argument provided");
+    process.exit(1);
+}
+const configPath = args[configIndex] !== undefined ? args[configIndex] : "";
+
+
+/**
+ * get a argument followed by an arg that is -c
+ */
+const environmentIndex = args.findIndex((arg) => arg === "-e" || arg === "--environment") + 1;
+
+console.log("environmentIndex: ", environmentIndex);
+
+if (environmentIndex <= 0) {
+    console.log("No environmnet argument provided");
+    process.exit(1);
+}
+
+/**
+ * get the argument that does not start with a "-" and that is not followed by another argument starting with -
+ */
+const commandIndex = args.findIndex(
+    (arg: string, idx: number) => (
+        /** the arg must not start with "-" */
+        arg.startsWith("-") === false
+        /** the arg can be the first one */
+        && ( idx === 0 ||
+        /** the preceeding arg must not start with "-", too */
+            args?.[idx - 1]?.startsWith("-") === false
+        )
+    )
+);
+
+const command = args?.[commandIndex];
+
+console.log("commandIndex: ", commandIndex, command);
+
+/**
+ * import module from string in args[0]
+ */
+const systemDefinition: ISystem = require(path.resolve(process.cwd(), configPath ? configPath : "")).default;
+
+console.log("systemDefinition: ", systemDefinition);
+
+if (!args[environmentIndex] || !systemDefinition?.environments?.[(args[environmentIndex]) as string]) {
+    console.log(`Environment ${args[environmentIndex]} not found`);
+    process.exit(1);
+}
+
+/**
+ * start the command in the environment
+ */
+systemDefinition?.environments?.[(args[environmentIndex]) as string]?.[(command) as string]?.(systemDefinition.components);

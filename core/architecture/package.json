@@ -1,0 +1,31 @@
+{
+  "name": "@calliopadev/architecture",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "author": "Dr. Frank Zickert",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+},
+  "scripts": {
+    "typegen": "tsc",
+    "lint": "eslint ./src -c .eslintrc.js",
+    "lint:fix": "eslint ./src -c .eslintrc.js --fix",
+    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    "/** when running in dev-mode, compile and watch the sources */": "",
+    "dev": "nodemon -e ts,js --watch src --exec \"babel ./src --out-dir dist --extensions .ts\""
+  },
+  
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@calliopadev/babel-config": "workspace:*",
+    "@calliopadev/eslint-config": "workspace:*",
+    "@calliopadev/typescript-config": "workspace:*",
+    "eslint": "^8.53.0",
+    "nodemon": "^2.0.7",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  }
+}
