@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_calliopadev_docs=self.webpackChunk_calliopadev_docs||[]).push([[512],{4352:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/blog/welcome","unlisted":false}]}')}}]);

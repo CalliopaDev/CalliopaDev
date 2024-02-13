@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_calliopadev_docs=self.webpackChunk_calliopadev_docs||[]).push([[112],{1568:l=>{l.exports=JSON.parse('[{"label":"principles","permalink":"/blog/tags/principles","count":1},{"label":"goal","permalink":"/blog/tags/goal","count":1}]')}}]);

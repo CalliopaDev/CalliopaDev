@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_calliopadev_docs=self.webpackChunk_calliopadev_docs||[]).push([[64],{2080:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);
