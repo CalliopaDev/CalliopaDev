@@ -1,0 +1,16 @@
+{
+  "name": "@calliopadev/babel-config",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Dr. Frank Zickert",
+  "files": [
+    "react.babel.config.js",
+    "api.babel.config.js"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "typescript": "^5.2.2"
+  }
+}

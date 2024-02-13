@@ -1,0 +1,81 @@
+{
+  "name": "@calliopadev/calliopadev",
+  "description": "Create a clean software system architecture with TypeScript",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalliopaDev/CalliopaDev"
+  },
+  "bugs": {
+    "url": "https://github.com/CalliopaDev/CalliopaDev/issues"
+  },
+  "homepage": "https://www.calliopa.dev",
+  "scripts": {
+    "templated": "nunjucks --path ./private/templated --out . --extension yaml pnpm-workspace.yaml ./private/source-data.json && nunjucks --path ./private/templated --out . --extension json package.json ./private/source-data.json",
+    "/** engineer the requirements */": "",
+    "re": "./node_modules/.bin/cucumber-js ./features/*/*.feature",
+    "/** validate the static source code structure*/": "",
+    "lint": "turbo lint",
+    "/** fix the static source code structure*/": "",
+    "lint:fix": "turbo lint:fix",
+    "/** generate the types of the libraries */": "",
+    "typegen": "turbo typegen",
+    "/** build the project */": "",
+    "build": "turbo build",
+    "/** start the packages locally in hot-dev mode */": "",
+    "dev": "trap 'echo Stop CalliopaDev Gracefully; turbo run stopdev --no-cache --force; echo CalliopaDev Stopped ;exit 0' EXIT; turbo run dev --concurrency=30",
+    "/** start the packages locally in uat mode */": "",
+    "uat": "trap 'echo Stop CalliopaUAT Gracefully; turbo run stopuat --no-cache --force; echo CalliopaUAT Stopped ;exit 0' EXIT; turbo run uat --concurrency=30",
+    "/** deploy the packages in the cloud */": "",
+    "deploy": "turbo run deploy --concurrency=30",
+    "test": "turbo test",
+    "startdev": "./node_modules/@calliopadev/cli/dist/cli.js start -c ./examples/simple/dist/index.js"
+  },
+  "devDependencies": {
+    "@calliopadev/cli": "workspace:*",
+    "@calliopadev/eslint-config": "workspace:*",
+    "@calliopadev/typescript-config": "workspace:*",
+    "@cucumber/cucumber": "^10.3.1",
+    "nunjucks": "^3.2.4",
+    "nunjucks-cli": "^1.0.0",
+    "prettier": "^3.1.0",
+    "turbo": "latest"
+  },
+  "devEngines": {
+    "node": ">= 18",
+    "pnpm": ">= 8.9.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">= 8.9.0"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "/** REMINDER: Add all workspaces to `pnpm-workspace.yaml`, too */": "",
+  "workspaces": [
+    "/** packages to configure the dev environment */",
+    "config/*",
+    
+    "/** packages reusable beyond this project */",
+    "libraries/*",
+    "/** components are individual self-developed packages */",
+    "components/*",
+    "/** tools are individual software packages */",
+    "tools/*",
+    "/** supported infrastructure layers - choose one*/",
+    "infrastructure/*",
+    "/** the application layers - packages depend on infrastructure components */",
+    "application/*",
+    "/** the core domain logic */",
+    "core/*",
+    "/** the interface contracts to connect the parts of the system */",
+    "interfaces/*",
+    "/** the system specifies the architecture of the system */",
+    "system/*",
+    "/** the commands used to work with an architecture */",
+    "cli/*",
+    "/** special purpose environments */",
+    "environments/*",
+    "/** examples of how to use the CalliopaDev */",
+    "examples/*"
+  ]
+}

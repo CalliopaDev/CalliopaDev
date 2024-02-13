@@ -1,0 +1,9 @@
+{
+    "extends": "@calliopadev/typescript-config/api-config.json",
+    "compilerOptions": {
+      // where to put the transpiled files
+      "outDir": "dist"
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}

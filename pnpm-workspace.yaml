@@ -1,0 +1,14 @@
+# these packages must match those in the package.json
+packages:
+  - "config/*"
+  - "libraries/*"
+  - "components/*"
+  - "tools/*"
+  - "infrastructure/*"
+  - "application/*"
+  - "core/*"
+  - "interfaces/*"
+  - "system/*"
+  - "cli/*"
+  - "environments/*"
+  - "examples/*"
