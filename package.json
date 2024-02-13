@@ -54,7 +54,8 @@
   "workspaces": [
     "/** packages to configure the dev environment */",
     "config/*",
-    
+    "/** the documentation of calliopadev */",
+    "docs",
     "/** packages reusable beyond this project */",
     "libraries/*",
     "/** components are individual self-developed packages */",

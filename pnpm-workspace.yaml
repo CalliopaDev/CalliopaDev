@@ -1,6 +1,7 @@
 # these packages must match those in the package.json
 packages:
   - "config/*"
+  - "docs" # there is no sub-directory, but this is the docs
   - "libraries/*"
   - "components/*"
   - "tools/*"
