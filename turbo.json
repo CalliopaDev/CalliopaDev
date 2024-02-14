@@ -22,6 +22,9 @@
     "stopdev": {
       "dependsOn": ["^stopdev"]
     },
+    "req": {
+      "dependsOn": ["^req"]
+    },
     "test": {
       "dependsOn": ["^test"]
     }
