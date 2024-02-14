@@ -20,7 +20,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn", "prettier"],
+  plugins: ["only-warn", "prettier", "check-file"],
   settings: {
     "import/resolver": {
       typescript: {

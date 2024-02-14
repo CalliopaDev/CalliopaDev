@@ -31,7 +31,17 @@ module.exports = {
          */
         "react/jsx-filename-extension": "off",
 
-        "@stylistic/no-extra-parens": "off"
+        "@stylistic/no-extra-parens": "off",
+
+        /**
+         * enforce the use of `camelCase` for filenames
+         */
+        "unicorn/filename-case": [
+            "error",
+            {
+                "case": "camelCase"
+            }
+        ]
 
     }
 }

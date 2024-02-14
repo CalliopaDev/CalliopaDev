@@ -28,6 +28,7 @@ module.exports = {
   	plugins: [
 		"only-warn",
 		"@typescript-eslint",
+		"check-file", 
         "prettier",
         /**
 		 * see: https://eslint.style/packages/default
