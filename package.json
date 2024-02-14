@@ -1,4 +1,5 @@
 {
+  
   "name": "@calliopadev/calliopadev",
   "description": "Create a clean software system architecture with TypeScript",
   "license": "GPL-3.0",
@@ -12,8 +13,8 @@
   "homepage": "https://www.calliopa.dev",
   "scripts": {
     "templated": "nunjucks --path ./private/templated --out . --extension yaml pnpm-workspace.yaml ./private/source-data.json && nunjucks --path ./private/templated --out . --extension json package.json ./private/source-data.json",
-    "/** engineer the requirements */": "",
-    "re": "./node_modules/.bin/cucumber-js ./features/*/*.feature",
+    "/** engineer the requirements */": "run with typescript",
+    "req": "turbo req",
     "/** validate the static source code structure*/": "",
     "lint": "turbo lint",
     "/** fix the static source code structure*/": "",
@@ -32,10 +33,10 @@
     "startdev": "./node_modules/@calliopadev/cli/dist/cli.js start -c ./examples/simple/dist/index.js"
   },
   "devDependencies": {
+    "@argdown/cli": "^1.7.5",
     "@calliopadev/cli": "workspace:*",
     "@calliopadev/eslint-config": "workspace:*",
     "@calliopadev/typescript-config": "workspace:*",
-    "@cucumber/cucumber": "^10.3.1",
     "nunjucks": "^3.2.4",
     "nunjucks-cli": "^1.0.0",
     "prettier": "^3.1.0",

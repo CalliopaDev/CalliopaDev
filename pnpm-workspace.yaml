@@ -1,7 +1,9 @@
 # these packages must match those in the package.json
+# this file is generated programmatically. DO NOT EDIT
 packages:
   - "config/*"
   - "docs" # there is no sub-directory, but this is the docs
+  - "features" # there is no sub-directory, but this is the features
   - "libraries/*"
   - "components/*"
   - "tools/*"
