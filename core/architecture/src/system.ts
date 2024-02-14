@@ -1,5 +1,4 @@
-
-import { RecursiveObject } from "./recursiveObject";
+//import { RecursiveObject } from "./recursiveObject";
 import { IEnvironment } from "./environment";
 import { IComponent } from "./component";
 
@@ -9,12 +8,12 @@ import { IComponent } from "./component";
  */
 export class CSystem {
     name: string | null = null;
-    environments: ({
+    environments: {
         [key: string]: IEnvironment;
-    }) | null = null;
-    components: ({
+    } | null = null;
+    components: {
         [key: string]: IComponent;
-    }) | null = null;
+    } | null = null;
 }
 
 export interface ISystem extends CSystem {}

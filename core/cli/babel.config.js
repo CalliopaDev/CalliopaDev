@@ -21,7 +21,16 @@ module.exports = function (api) {
     return {
         presets,
         plugins,
-        env,
+        env: {
+            ...env,
+            test: {
+                ...(env?.test ?? {}),
+                plugins: [
+                    ...(env?.test?.plugins ?? []),
+                    "transform-require-context",
+                ]
+            }
+        },
         ignore
     };
   }
