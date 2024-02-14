@@ -2,18 +2,27 @@
   "name": "@calliopadev/features",
   "version": "0.0.1",
   "private": true,
-  "files": [
-    "react.webpack.config.js"
-  ],
+  "main": "dist/index.js",
   "scripts": {
-    "req": "./node_modules/.bin/cucumber-js */*.feature --require-module ts-node/register --require ./**/*.ts"
+    "/** building is only to be able to import it in the other workspaces": "",
+    "build": "rimraf dist && tsc && babel ./src --out-dir dist --extensions .ts",
+    "/** we run cucumber-js with ts-node to support typescript, purposedly on the source file **/" : "",
+    "req": "./node_modules/.bin/cucumber-js ./src/**/*.feature --require-module ts-node/register --require ./src/**/*.ts"
   },
   "type": "commonjs",
   "devDependencies": {
-    "@types/webpack-env": "^1.18.4",
-    "babel-plugin-transform-require-context": "^0.1.1",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.3",
+    "@calliopadev/babel-config": "workspace:*",
+    "@calliopadev/eslint-config": "workspace:*",
+    "@calliopadev/typescript-config": "workspace:*",
     "@cucumber/cucumber": "^10.3.1",
     "@types/node": "^20.11.6",
-    "ts-node": "^10.9.2"
+    "@types/webpack-env": "^1.18.4",
+    "babel-plugin-transform-require-context": "^0.1.1",
+    "eslint": "^8.53.0",    
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
   }
 }
