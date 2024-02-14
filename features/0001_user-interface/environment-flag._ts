@@ -1,0 +1,53 @@
+const path = require('path');
+const assert = require('assert');
+const { Given, When, Then } = require('@cucumber/cucumber');
+
+const { exec } = require('child_process');
+
+const simpleConfigPath = "examples/simple/dist/index.js";
+const simpleConfigContainsValidConfiguration = () => {
+    assert.notEqual(
+        require(path.join(process.cwd(), simpleConfigPath)).default, undefined);
+}
+
+///////////////////////////////////////////////// FIRST SCENARIO /////////////////////////////////////////////////
+
+Given(
+    'hotDev contains a specified environment',
+    simpleConfigContainsValidConfiguration
+);
+
+When(
+    'we run the `calliopa` command with hotDev as value for --environment.',
+    async function () {
+        
+        const command = `node ./core/cli/dist/cli.js --config ${simpleConfigPath} --environment hotDev`;
+
+        return await new Promise((resolve, reject) => {
+            exec(command, (error, stdout, stderr) => {
+                this.commandOutput = stdout;
+                //console.log(`Command output: ${stdout}`);
+
+                if (error || stderr) {
+                    console.error(`Error executing command: ${error} - ${stderr}`);
+                    return reject(error);
+                }
+                
+                resolve('success');
+            });
+        })
+
+    }
+);
+
+
+Then(
+    'Then CalliopaDev uses the hotDev environment.', 
+    function () {
+        // Write code here that turns the phrase above into concrete actions
+        assert.match(this.commandOutput, /simple/);
+    }
+);
+
+///////////////////////////////////////////////// SECOND SCENARIO /////////////////////////////////////////////////
+

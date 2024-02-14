@@ -1,0 +1,19 @@
+{
+  "name": "@calliopadev/features",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "react.webpack.config.js"
+  ],
+  "scripts": {
+    "req": "./node_modules/.bin/cucumber-js */*.feature --require-module ts-node/register --require ./**/*.ts"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/webpack-env": "^1.18.4",
+    "babel-plugin-transform-require-context": "^0.1.1",
+    "@cucumber/cucumber": "^10.3.1",
+    "@types/node": "^20.11.6",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    // where to put the transpiled files
+    "target": "ES5",
+    "noImplicitAny": false,
+    "noImplicitThis": false
+  },
+  "baseUrl": "./",
+  "rootDirs": ["."],
+  "exclude": ["node_modules", "dist"],
+  "types": [
+    "node",
+    "webpack-env" // here
+  ]
+}
