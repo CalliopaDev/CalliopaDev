@@ -4,7 +4,7 @@ import { ISystem } from "@calliopadev/architecture";
 import { createProgram, loadSystemConfiguration } from "./program";
 
 // must be imported to be referenced in the test docstring
-import { simpleConfigContainsValidConfiguration } from "@calliopadev/features/0001_user-interface/configuration-flag";
+//import { simpleConfigContainsValidConfiguration } from "@calliopadev/features/src/0001_user-interface/configuration-flag";
 
 
 const version = "0.1.0";
@@ -57,6 +57,8 @@ jest.mock(
  * Specification: the program takes its metadata from the `package.json`.
  *
  * This includes the name, the description and the version.
+ * 
+ * 
  *
  * @returns {void}
  */
@@ -78,7 +80,7 @@ metaDataFromJson();
  * Specification: program accepts `configuration-flag`
  * {@link simpleConfigContainsValidConfiguration}
  */
-function acceptAndRequireConfigFileOption() {
+export function acceptAndRequireConfigFileOption() {
     return describe("the program", () => {
         test("accepts the '-c' flag", () => {
             const program = createProgram("package.json");

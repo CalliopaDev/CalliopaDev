@@ -9,6 +9,8 @@ const defaultConfigPath = './calliopa.config.js';
 
 /**
  * Create the CLI program
+ * 
+ * {@link acceptAndRequireConfigFileOption }
  *
  * @param pathToPackageJson path to the package.json
  * @returns the `commander` program
