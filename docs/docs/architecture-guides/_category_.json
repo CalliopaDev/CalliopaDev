@@ -1,0 +1,8 @@
+{
+  "label": "Architecture Guides",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about different system architectures and how to build applications on it."
+  }
+}
